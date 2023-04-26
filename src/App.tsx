@@ -3,8 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import Grid from './Grid';
 
-const ROWS = 10;
-const COLS = 10;
+const ROWS = 100;
+const COLS = 100;
 const INITIAL_CHANCE = 0.25;
 
 function App() {
