@@ -1,4 +1,4 @@
-import { useState }, React from "react";
+import React, { useState } from "react";
 import { IGrid } from "./types";
 import Cell from "./Cell";
 
@@ -18,13 +18,12 @@ function Grid({ nrows, ncols, chanceStartLive }: IGrid) {
 
     function nextGenClick(): void {
         //resetting the board
-        setGrid(oldGrid => {
-        });
+        setGrid(oldGrid => getNewGrid(oldGrid));
     }
 
     function getNewGrid(oldGrid: boolean[][]): boolean[][] {
         const newGrid = [];
-        
+
         for (let i = 0; i < nrows; i++) {
             const newRow = [];
 
@@ -46,12 +45,15 @@ function Grid({ nrows, ncols, chanceStartLive }: IGrid) {
                         && c[1] < ncols
                     )
                 );
+
                 let nextGenAlive = null;
                 const currAlive = oldGrid[i][j];
+
                 const liveNeighbors = legalNeighbors.reduce(
                     (liveNum, coord) => oldGrid[coord[0]][coord[1]] ? liveNum + 1 : liveNum,
                     0
                 );
+
                 if (!currAlive) {
                     if (liveNeighbors === 3) {
                         nextGenAlive = true;
@@ -65,6 +67,7 @@ function Grid({ nrows, ncols, chanceStartLive }: IGrid) {
                         nextGenAlive = true;
                     }
                 }
+
                 newRow.push(nextGenAlive);
             }
 
@@ -87,7 +90,7 @@ function Grid({ nrows, ncols, chanceStartLive }: IGrid) {
                 )}
             </table>
             <button className="nextGenButton" onClick={nextGenClick}>
-                NextGen
+                Next Generation!
             </button>
         </div>
 
