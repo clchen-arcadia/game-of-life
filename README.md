@@ -1,6 +1,22 @@
-# Getting Started with Create React App
+# Game of Life
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project implements Conway's Game of Life
+
+    npx create-react-app game-of-life --template typescript
+
+## Rules of the Game
+
+0. This "zero player game" is played on a grid of squares, every square is "alive" or "dead". And the pattern evolves from generation to generation.
+
+1. Birth rule: A dead cell with precisely three live neighbors, becomes alive on the next generation.
+
+2. Death rule: A live cell with zero or 1 neighbors, or four or more neighbors dies on the next generation.
+
+3. Survival rule: A live cell with two or three neighbors remains alive.
+
+## Screenshots
+
+Under construction...
 
 ## Available Scripts
 
